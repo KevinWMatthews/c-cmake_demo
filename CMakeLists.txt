@@ -44,14 +44,15 @@ enable_testing ()
 
 add_test (TutorialRuns Tutorial 42)
 
-add_test (TutorialCheck25 Tutorial 25)
-set_tests_properties (TutorialCheck25 PROPERTIES PASS_REGULAR_EXPRESSION "25 is 5")
+add_test (TutorialUsageMessage Tutorial)
+set_tests_properties (TutorialUsageMessage PROPERTIES PASS_REGULAR_EXPRESSION "Usage:.*number")
 
-add_test (TutorialNegative Tutorial -25)
-set_tests_properties (TutorialNegative PROPERTIES PASS_REGULAR_EXPRESSION "-25 is 0")
+# define a macro to simplify testing
+macro (do_test arg result)
+    add_test (${my_PROJECT}Comp${arg} ${my_PROJECT} ${arg})
+    set_tests_properties (${my_PROJECT}Comp${arg} PROPERTIES PASS_REGULAR_EXPRESSION  ${result})
+endmacro (do_test)
 
-add_test (TutorialSmall Tutorial 0.0001)
-set_tests_properties (TutorialSmall PROPERTIES PASS_REGULAR_EXPRESSION "0.0001 is 0.01")
-
-add_test (TutorialUsage Tutorial)
-set_tests_properties (TutorialUsage PROPERTIES PASS_REGULAR_EXPRESSION "Usage:.*number")
+do_test (25 "25 is 5")
+do_test (-25 "-25 is 0")
+do_test (0.0001 "0.0001 is 0.01")
