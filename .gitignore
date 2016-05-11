@@ -12,6 +12,10 @@ Tutorial
 install/
 install_manifest.txt
 
+# Ignore CTest test files
+Testing/
+CTestTestfile.cmake
+
 # Ignore library files
 */lib*.a
 

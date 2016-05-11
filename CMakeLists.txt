@@ -37,3 +37,21 @@ target_link_libraries (${my_PROJECT} ${EXTRA_LIBS})
 set (CMAKE_INSTALL_PREFIX "/usr/local")
 install (TARGETS ${my_PROJECT} DESTINATION bin)
 install (FILES "${PROJECT_BINARY_DIR}/${my_PROJECT}Config.h" DESTINATION include)
+
+# add tests
+enable_testing ()
+# include (CTest) ?
+
+add_test (TutorialRuns Tutorial 42)
+
+add_test (TutorialCheck25 Tutorial 25)
+set_tests_properties (TutorialCheck25 PROPERTIES PASS_REGULAR_EXPRESSION "25 is 5")
+
+add_test (TutorialNegative Tutorial -25)
+set_tests_properties (TutorialNegative PROPERTIES PASS_REGULAR_EXPRESSION "-25 is 0")
+
+add_test (TutorialSmall Tutorial 0.0001)
+set_tests_properties (TutorialSmall PROPERTIES PASS_REGULAR_EXPRESSION "0.0001 is 0.01")
+
+add_test (TutorialUsage Tutorial)
+set_tests_properties (TutorialUsage PROPERTIES PASS_REGULAR_EXPRESSION "Usage:.*number")

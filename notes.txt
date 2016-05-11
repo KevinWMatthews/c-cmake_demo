@@ -18,3 +18,10 @@ Be careful about conditionally including libraries/setting libraries with option
     add a preprocessor define (#cmakedefine) to <project>Config.h.in
     set the option() to ON
     add include_directories() and add_subdirectory()
+
+You can run tests by running either
+    make test
+or
+    ctest
+
+It looks like enable_testing() is used for basic testing and include (CTest) is needed only to integrate with a Dashboard/CDash. This would allow for nightly testing, continuous testing, and experimental testing.
