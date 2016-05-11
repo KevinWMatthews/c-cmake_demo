@@ -8,6 +8,9 @@ Makefile
 # Ignore executable
 Tutorial
 
+# Ignore library files
+*/lib*.a
+
 # Ignore vim swap files
 *.swp
 *.swo

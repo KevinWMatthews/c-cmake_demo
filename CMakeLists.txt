@@ -15,7 +15,9 @@ configure_file (
 
 # add the binary tree to the search path for include files so that it will find <my_PROJECT>Config.h
 include_directories ("${PROJECT_BINARY_DIR}")
+include_directories ("${PROJECT_SOURCE_DIR}/MathFunctions")
+add_subdirectory (MathFunctions)
 
 # add the executable
 add_executable (${my_PROJECT} tutorial.c)
-target_link_libraries (${my_PROJECT} m)
+target_link_libraries (${my_PROJECT} MathFunctions)
