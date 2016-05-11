@@ -8,6 +8,10 @@ Makefile
 # Ignore executable
 Tutorial
 
+# Ignore install files
+install/
+install_manifest.txt
+
 # Ignore library files
 */lib*.a
 

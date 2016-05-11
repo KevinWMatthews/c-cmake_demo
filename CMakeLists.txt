@@ -32,3 +32,8 @@ endif ()
 # add the executable
 add_executable (${my_PROJECT} tutorial.c)
 target_link_libraries (${my_PROJECT} ${EXTRA_LIBS})
+
+# add install targets
+set (CMAKE_INSTALL_PREFIX "/usr/local")
+install (TARGETS ${my_PROJECT} DESTINATION bin)
+install (FILES "${PROJECT_BINARY_DIR}/${my_PROJECT}Config.h" DESTINATION include)
