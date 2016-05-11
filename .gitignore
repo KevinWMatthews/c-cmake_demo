@@ -1,0 +1,13 @@
+# Ignore CMake files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+TutorialConfig.h
+Makefile
+
+# Ignore executable
+Tutorial
+
+# Ignore vim swap files
+*.swp
+*.swo
