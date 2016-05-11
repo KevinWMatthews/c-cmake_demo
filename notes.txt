@@ -1,0 +1,20 @@
+To build the makefiles, run
+cmake .
+from the project directory.
+
+To run the makefile (generate an executable from your code), run
+make
+
+To install your program in the directory specified by CMAKE_INSTALL_PREFIX, run
+make install
+
+To uninstall your program, delete the files found in
+install_manifest.txt
+or get fancy and run
+xargs rm < install_manifest.txt
+which I haven't yet tried.
+
+Be careful about conditionally including libraries/setting libraries with options. You may need to:
+    add a preprocessor define (#cmakedefine) to <project>Config.h.in
+    set the option() to ON
+    add include_directories() and add_subdirectory()
